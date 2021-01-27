@@ -80,7 +80,7 @@ int main()
 		ReadProcessMemory(phandle, (void*)((unsigned long long)addr + 0x130), &addr, sizeof(addr), 0);
 		ReadProcessMemory(phandle, (void*)((unsigned long long)addr + 0xAE0), &looking, sizeof(looking), 0);
 
-		while (looking == 1 && GetAsyncKeyState(VK_RBUTTON)) //Can be changed to any keybind https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
+		while (looking == 1 && GetAsyncKeyState(VK_RBUTTON) || looking == 1 && GetAsyncKeyState(0x43)) //Can be changed to any keybind https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes
 		{
 			mouse_event(MOUSEEVENTF_LEFTDOWN, NULL, NULL, NULL, NULL);
 			mouse_event(MOUSEEVENTF_LEFTUP, NULL, NULL, NULL, NULL);
